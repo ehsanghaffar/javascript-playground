@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Website Layout with Sidebar Template</title>
+  <meta name="description" content="A modern website layout with a collapsible sidebar using Tailwind CSS." />
+  <script>
+    window.onload = () => {
+
+      // sidebar toggle script can go here
+      const sidebar = document.querySelector('aside');
+      const toggleButton = document.querySelector('button[aria-label="Expand sidebar"]');
+      toggleButton.addEventListener('click', () => {
+        if (sidebar.classList.contains('w-64')) {
+          sidebar.classList.remove('w-64');
+          sidebar.classList.add('w-0');
+        } else {
+          sidebar.classList.remove('w-0');
+          sidebar.classList.add('w-64');
+        }
+      });
+    };
+  </script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-rich-black text-pure-white font-sans overflow-x-hidden">
+  <div class="min-h-dvh bg-rich-black text-pure-white">
+    <div class="lg:flex">
+      <aside
+        class="hidden lg:flex lg:flex-col sticky top-0 h-dvh bg-rich-black/80 backdrop-blur transition-[width] duration-300 ease-in-out overflow-hidden w-64 border-r border-slate-300">
+        <div class="flex items-center gap-2 px-3 py-3">
+          <a href="/" class="flex items-center gap-2 text-pure-white"><img src="/palette.svg" alt="title"
+              class="h-6 w-6 rounded"><span class="text-sm font-medium">Website</span></a>
+          <button
+            class="ml-auto h-10 w-10 inline-flex items-center justify-center rounded-md bg-white/5 text-silver hover:bg-white/10"
+            aria-label="Collapse sidebar" title="Collapse sidebar"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg></button>
+        </div>
+        <div class="flex-1 overflow-y-auto">
+        </div>
+      </aside>
+      <div class="min-h-dvh min-w-0 flex flex-col flex-1">
+        <div class="sticky top-0 z-50 border-b border-slate-300 bg-rich-black/70 backdrop-blur">
+          <div class="h-12 flex items-center">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 w-full flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <button
+                  class="hidden lg:inline-flex h-10 w-10 items-center justify-center rounded-md bg-white/5 text-silver hover:bg-white/10"
+                  aria-label="Expand sidebar" title="Expand sidebar"><svg viewBox="0 0 24 24" class="h-5 w-5"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg></button>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="relative"><button
+                    class="lg:hidden h-8 w-8 inline-flex items-center justify-center rounded-md bg-white/5 text-silver hover:bg-white/10"
+                    aria-label="Search heroes"><svg class="h-4 w-4" fill="none" stroke="currentColor"
+                      viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg></button>
+                  <div class="hidden lg:block relative border border-slate-200 rounded-lg"><input type="text"
+                      placeholder="Search here..."
+                      class="h-8 w-48 px-3 pr-8 text-sm bg-white/5 text-silver placeholder-silver/60 rounded-md border border-white/10 focus:outline-none focus:ring-1 focus:ring-teal focus:border-teal"
+                      value="">
+                    <div class="absolute right-2 top-1/2 -translate-y-1/2"><svg class="h-3 w-3 text-silver/60"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                      </svg></div>
+                  </div>
+                </div>
+                <button
+                  class="lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-md bg-white/5 text-silver hover:bg-white/10"
+                  aria-label="Open menu"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <main class="flex-1 min-w-0">
+          <div class="mx-auto max-w-7xl w-full px-4 sm:px-6 py-6">
+            <div class="min-h-screen bg-rich-black text-silver mb-12 border border-slate-300">
+              <main class="container mx-auto px-4 py-6">
+                <!-- top -->
+                <section class="max-w-[1280px] mx-auto ">
+                  <div class="text-center mb-8">
+                    <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-pure-white glow-text-teal">
+                      Welcome to Our Website
+                    </h1>
+                    <p class="text-sm sm:text-base text-silver/80">
+                      You can put a catchy tagline or description here to engage your visitors.
+                    </p>
+                  </div>
+                  <div class="max-w-lg mx-auto mb-8">
+                    <div
+                      class="flex items-center bg-charcoal rounded-full px-4 py-2 border border-teal/20 focus-within:border-teal/50 focus-within:glow-border-teal transition-all duration-300">
+                      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
+                        class="text-teal w-4 h-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                        </path>
+                      </svg><input placeholder="Search here..."
+                        class="bg-transparent text-silver text-sm px-3 py-1 rounded-full w-full focus:outline-none placeholder:text-silver/40"
+                        type="text" value="">
+                    </div>
+                  </div>
+                  <section class="text-center mb-8">
+                    <h2 class="text-xl font-bold mb-6 text-teal glow-text-teal flex items-center">
+                      Featured Items
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                      <div
+                        class="bg-charcoal/80 backdrop-blur-sm rounded-xl p-4 hover:glow-border-teal  transition-all duration-300 border border-teal/10 hover:border-teal/30 transform hover:-translate-y-1 hover:shadow-xl shadow-lg">
+                        1</div>
+                      <div
+                        class="bg-charcoal/80 backdrop-blur-sm rounded-xl p-4 hover:glow-border-teal  transition-all duration-300 border border-teal/10 hover:border-teal/30 transform hover:-translate-y-1 hover:shadow-xl shadow-lg">
+                        2</div>
+                      <div
+                        class="bg-charcoal/80 backdrop-blur-sm rounded-xl p-4 hover:glow-border-teal  transition-all duration-300 border border-teal/10 hover:border-teal/30 transform hover:-translate-y-1 hover:shadow-xl shadow-lg">
+                        3</div>
+                      <div
+                        class="bg-charcoal/80 backdrop-blur-sm rounded-xl p-4 hover:glow-border-teal  transition-all duration-300 border border-teal/10 hover:border-teal/30 transform hover:-translate-y-1 hover:shadow-xl shadow-lg">
+                        4</div>
+                    </div>
+                  </section>
+                </section>
+                <section class="flex flex-col gap-4 md:gap-6">
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="flex-1  p-4">
+                      <div
+                        class="rounded-lg p-5 shadow-lg hover:shadow-xl transition duration-300 flex flex-col h-full  border border-[#2E5EAA]/30">
+                        1
+                      </div>
+                    </div>
+                    <div class="flex-1  p-4">
+                      <div
+                        class="rounded-lg p-5 shadow-lg hover:shadow-xl transition duration-300 flex flex-col h-full  border border-[#820263]/30">
+                        2
+                      </div>
+                    </div>
+                    <div class="flex-1 p-4">
+                      <div
+                        class="rounded-lg p-5 shadow-lg hover:shadow-xl transition duration-300 flex flex-col h-full  border border-[#44A1A0]/30">
+                        3
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </main>
+            </div>
+          </div>
+          <div class="container mx-auto px-4 text-center text-silver">
+            footer
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
